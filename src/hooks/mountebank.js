@@ -10,13 +10,13 @@ const stubsRegister = async (user, pwd) => {
             MOUNTEBANK_REGISTER_URL,
             JSON.stringify({
                 index: 0,
-                "defaultResponse": {
-                    "headers": {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Headers": "*",
-                    "Access-Control-Allow-Methods": "*",
-                    "Access-Control-Allow-Origin": "*"
-                    }
+                defaultResponse: {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Headers": "*",
+                        "Access-Control-Allow-Methods": "*",
+                        "Access-Control-Allow-Origin": "*",
+                    },
                 },
                 stub: {
                     responses: [
@@ -84,7 +84,7 @@ const stubsRegister = async (user, pwd) => {
                 },
             }),
             {
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "application/json" }
             }
         );
 

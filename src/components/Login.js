@@ -48,8 +48,12 @@ const Login = () => {
                 // },
                 // headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
             });
+            console.log(response?.data?.pwd);
+            console.log(typeof JSON.stringify(response?.data?.pwd));
+            console.log(pwd);
+            console.log(typeof pwd);
 
-            if (pwd === response?.data?.pwd) {
+            if (JSON.stringify(pwd) === JSON.stringify(response?.data?.pwd)) {
                 const accessToken = response?.data?.accessToken;
                 const roles = response?.data?.roles;
                 setAuth({ user, pwd, roles, accessToken });
@@ -60,7 +64,7 @@ const Login = () => {
                 throw new Error("unauthorized");
             }
         } catch (err) {
-            console.log(err.response);
+            console.log(err);
 
             if (!err?.response) {
                 setErrMsg("No Server Response");
